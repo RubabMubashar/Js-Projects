@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Interactive Map</title>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <style>
+    /* Style for the map container */
+    #map {
+      height: 500px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Interactive Map</h1>
+  <div id="map"></div> <!-- Map container -->
+
+  <!-- Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script>
+    // Initialize the map and set its view to a chosen geographical location and zoom level
+    var map = L.map('map').setView([51.505, -0.09], 13);
+
+    // Load and display tile layers from OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© Rubab Mubashar'
+    }).addTo(map);
+
+    // Add a marker at the chosen location
+    var marker = L.marker([51.5, -0.09]).addTo(map)
+      .bindPopup('Hey there')
+      .openPopup();
+  </script>
+</body>
+</html>
